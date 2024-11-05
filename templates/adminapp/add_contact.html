@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .save-button {
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+        }
+        .back-button {
+            background-color: #6c757d;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .back-button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Contact</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="phone">Phone number:</label>
+            <input type="text" id="phone" name="phone_number">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+
+            <button type="submit" class="save-button">Save Contact</button>
+        </form>
+        <button class="back-button"><a href="{% url 'contact_list' %}">Back to Contact List</a></button>
+    </div>
+</body>
+</html>
